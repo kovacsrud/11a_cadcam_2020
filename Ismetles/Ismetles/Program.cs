@@ -61,7 +61,17 @@ namespace Ismetles
 
             adat = 123.551;
 
-            
+            //Összetett adattípusok, tömb
+            //több azonos típusú adatot tárol
+
+            //tömb létrehozása az elemek megadásával
+            int[] t1 = { 1, 2, 6, 77, 81 };
+
+            //tömb létrehozása az elemszám megadásával, 
+            //kezdetben minden elem értéke 0.
+            int[] t2 = new int[10];
+
+
 
 
 

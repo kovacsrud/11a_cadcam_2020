@@ -79,8 +79,18 @@ namespace Ismetles
                 Console.WriteLine(t1[i]);
             }
 
+            //Véletlen számok létrehozása
+            Random rand = new Random();
 
-            Console.WriteLine(t1[0]);
+            for (int i = 0; i < t2.Length; i++)
+            {
+                t2[i] = rand.Next(-100, 100 + 1);
+            }
+
+            for (int i = 0; i < t2.Length; i++)
+            {
+                Console.Write(t2[i] + " ");
+            }
 
             Console.ReadKey();
         }

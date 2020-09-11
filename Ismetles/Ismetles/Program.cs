@@ -92,6 +92,22 @@ namespace Ismetles
                 Console.Write(t2[i] + " ");
             }
 
+            //két dimenziós tömb
+
+            int[,] tomb2d = new int[10, 10];
+
+            //feltölteni értékekkel
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    tomb2d[i, j] = rand.Next(-100, 100 + 1);
+                }
+            }
+
+            //listázás
+
+
             Console.ReadKey();
         }
     }

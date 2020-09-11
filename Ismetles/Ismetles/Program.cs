@@ -31,6 +31,8 @@ namespace Ismetles
 
             long c = 1245366662456;
 
+            Console.WriteLine($"Max:{UInt32.MaxValue} Min{UInt32.MinValue}");
+
             //nem egész számok
             //egyszeres pontosságú lebegőpontos szám
             float t=23.012345678901234567890123456789f;
@@ -43,9 +45,23 @@ namespace Ismetles
 
             Console.WriteLine($"{t},{tt},{ttt}");
 
-                      
+            //szöveg
+            string szoveg = "Valami szöveg";
 
-            Console.WriteLine($"Max:{UInt32.MaxValue} Min{UInt32.MinValue}");
+            //karakter
+            char betu = 'a';
+
+            //logikai érték
+            bool logikai = true;
+
+            //Deklarálás a var-al, ebben az esetben a fordító
+            //a megfelelő típust rendeli a változóhoz
+
+            var adat = 123.51;
+
+            adat = 123.551;
+
+            
 
 
 

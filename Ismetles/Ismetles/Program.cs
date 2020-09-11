@@ -65,15 +65,22 @@ namespace Ismetles
             //több azonos típusú adatot tárol
 
             //tömb létrehozása az elemek megadásával
-            int[] t1 = { 1, 2, 6, 77, 81 };
+            int[] t1 = { 1, 2, 6, 77, 81,122,567 };
 
             //tömb létrehozása az elemszám megadásával, 
             //kezdetben minden elem értéke 0.
             int[] t2 = new int[10];
 
+            //Hozzáférés egy adott elemhez
+            t1[0] = 11;
+
+            for (int i = 0; i < t1.Length; i++)
+            {
+                Console.WriteLine(t1[i]);
+            }
 
 
-
+            Console.WriteLine(t1[0]);
 
             Console.ReadKey();
         }

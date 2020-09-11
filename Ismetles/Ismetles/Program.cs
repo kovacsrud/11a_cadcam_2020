@@ -115,6 +115,19 @@ namespace Ismetles
                 Console.WriteLine();
             }
 
+            string mintaszoveg = "Minta szöveg";
+
+            mintaszoveg = "Másik minta szöveg";
+
+
+
+            Console.WriteLine(mintaszoveg.ToUpper());
+            Console.WriteLine(mintaszoveg.Contains("minta"));
+
+
+
+
+
             Console.ReadKey();
         }
     }

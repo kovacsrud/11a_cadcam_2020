@@ -10,6 +10,17 @@ namespace Szovegek
     {
         static void Main(string[] args)
         {
+            //Műveletek string-ekkel
+            string szoveg = "Valami szöveg";
+            string masik = "valami SZöveg";
+
+            Console.WriteLine(szoveg.ToUpper());
+            Console.WriteLine(szoveg.ToLower());
+
+
+
+
+
 
             Console.ReadKey();
         }

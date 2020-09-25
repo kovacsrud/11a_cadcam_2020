@@ -58,14 +58,18 @@ namespace Szovegek
                 {
                     szovegTomb[i] = Char.ToLower(szovegTomb[i]);
                 }
-                if (Char.IsLower(szovegTomb[i]))
+                else
                 {
                     szovegTomb[i] = Char.ToUpper(szovegTomb[i]);
                 }
             }
 
+
+            Console.WriteLine($"Eredeti:{szoveg}");
+
             szoveg = new string(szovegTomb);
 
+          
             Console.WriteLine(szoveg);
 
 

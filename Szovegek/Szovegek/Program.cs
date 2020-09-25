@@ -41,6 +41,28 @@ namespace Szovegek
             //A darabolás után egy tömbbe kerülnek az elemek
             var elemek = darabol.Split(';');
 
+            for (int i = 0; i < elemek.Length; i++)
+            {
+                Console.WriteLine(elemek[i]);
+            }
+
+            szoveg = "VaLaMi sZöVeG";
+            //Alakítsuk át a stringet úgy, hogy ami nagybetűs az 
+            //kisbetűs legyen, és fordítva
+
+            var szovegTomb = szoveg.ToCharArray();
+
+            for (int i = 0; i < szovegTomb.Length; i++)
+            {
+                if (Char.IsUpper(szovegTomb[i]))
+                {
+                    szovegTomb[i] = Char.ToLower(szovegTomb[i]);
+                }
+                if (Char.IsLower(szovegTomb[i]))
+                {
+                    szovegTomb[i] = Char.ToUpper(szovegTomb[i]);
+                }
+            }
 
 
 

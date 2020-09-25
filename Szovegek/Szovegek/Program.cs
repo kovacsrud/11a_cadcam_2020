@@ -64,6 +64,10 @@ namespace Szovegek
                 }
             }
 
+            szoveg = new string(szovegTomb);
+
+            Console.WriteLine(szoveg);
+
 
 
 

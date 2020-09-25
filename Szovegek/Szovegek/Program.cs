@@ -37,6 +37,11 @@ namespace Szovegek
             Console.WriteLine(datum.Substring(5,2));
             Console.WriteLine(datum.Substring(0,4));
 
+            string darabol = "egy;ketto;harom;negy";
+            //A darabolás után egy tömbbe kerülnek az elemek
+            var elemek = darabol.Split(';');
+
+
 
 
 

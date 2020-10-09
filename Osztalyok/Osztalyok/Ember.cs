@@ -15,9 +15,9 @@ namespace Osztalyok
         public int szulev;
 
         //metódusok (függvények)
-        public void Koszon()
+        public void Koszon(string koszones)
         {
-            Console.WriteLine("Hello");
+            Console.WriteLine($"{koszones}, {nev} vagyok.");
         }
 
     }

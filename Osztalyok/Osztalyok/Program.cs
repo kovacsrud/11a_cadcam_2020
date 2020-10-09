@@ -24,6 +24,12 @@ namespace Osztalyok
 
             Tanulo tanulo = new Tanulo("Zoltán", "12/X", 189, 76);
             Console.WriteLine(tanulo.Nev);
+            tanulo.Magassag = -179;
+            Console.WriteLine(tanulo.Magassag);
+
+            Tanulo tanulo2 = new Tanulo("Ödön", "11/q", 230, 79);
+
+            Console.WriteLine(tanulo2.Magassag);
 
             Console.ReadKey();
         }

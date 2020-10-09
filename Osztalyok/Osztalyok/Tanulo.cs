@@ -12,7 +12,23 @@ namespace Osztalyok
 
         public string Nev { get; set; }
         public string Osztalya { get; set; }
-        public int Magassag { get; set; }
+        private int magassag;
+        public int Magassag {
+
+            get { return magassag; }
+
+            set
+            {
+                if(value>=100 && value<= 220)
+                {
+                    magassag = value;
+                } else
+                {
+                    magassag = 165;
+                }
+            }
+
+        }
         public int Suly { get; set; }
 
         public Tanulo(string nev, string osztalya, int magassag, int suly)

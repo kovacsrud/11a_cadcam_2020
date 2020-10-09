@@ -9,10 +9,10 @@ namespace Osztalyok
     public class Ember
     {
         //adattagok, adatmezők
-        public string nev;
-        public int magassag;
-        public int suly;
-        public int szulev;
+        private string nev;
+        private int magassag;
+        private int suly;
+        private int szulev;
 
         //metódusok (függvények)
         public void Koszon(string koszones)

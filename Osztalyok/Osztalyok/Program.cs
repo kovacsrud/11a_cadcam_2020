@@ -22,6 +22,9 @@ namespace Osztalyok
 
             zeno.Koszon("Csumi");
 
+            Tanulo tanulo = new Tanulo("Zoltán", "12/X", 189, 76);
+            Console.WriteLine(tanulo.Nev);
+
             Console.ReadKey();
         }
     }

@@ -31,5 +31,15 @@ namespace Osztalyok
             Console.WriteLine($"{koszones}, {nev} vagyok.");
         }
 
+        public void SetNev(string ujnev)
+        {
+            nev = ujnev;
+        }
+
+        public int GetMagassag()
+        {
+            return magassag;
+        }
+
     }
 }

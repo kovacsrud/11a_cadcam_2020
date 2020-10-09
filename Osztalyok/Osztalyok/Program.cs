@@ -14,6 +14,9 @@ namespace Osztalyok
             
 
             ubul.Koszon("Mizu");
+            ubul.SetNev("Gerzson");
+            ubul.Koszon("Hello");
+            Console.WriteLine(ubul.GetMagassag());
 
             Ember zeno = new Ember("Zénó",169,81,2005);
 

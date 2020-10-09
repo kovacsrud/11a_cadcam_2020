@@ -10,12 +10,12 @@ namespace Osztalyok
     {
         static void Main(string[] args)
         {
-            Ember ubul = new Ember();
+            Ember ubul = new Ember("Ubul",178,78,1999);
             
 
             ubul.Koszon("Mizu");
 
-            Ember zeno = new Ember();
+            Ember zeno = new Ember("Zénó",169,81,2005);
 
             zeno.Koszon("Csumi");
 

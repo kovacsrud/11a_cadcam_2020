@@ -18,6 +18,10 @@ namespace Idojaras
             Szelsebesseg = szelsebesseg;
             Paratartalom = paratartalom;
         }
+        public IdojarasAdat()
+        {
+
+        }
 
         public int Ev { get; set; }
         public int Honap { get; set; }

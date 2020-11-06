@@ -53,13 +53,31 @@ namespace Idojaras
 
             var ev2016 = idojarasadatok.FindAll(x=>x.Ev==2016 && x.Honap==11).Average(x=>x.Homerseklet);
 
+            Console.Write("Adjon meg egy évet:");
+            var beev = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Adjon meg egy hónapot:");
+            var behonap= Convert.ToInt32(Console.ReadLine());
+            Console.Write("Adjon meg egy napot:");
+            var benap = Convert.ToInt32(Console.ReadLine());
 
+            var eredmeny = idojarasadatok.FindAll(x=>x.Ev==beev && x.Honap==behonap && x.Nap==benap);
 
-            //foreach (var i in ev2016)
-            //{
-            //    Console.WriteLine($"{i.Ev}-{i.Honap}-{i.Nap} {i.Homerseklet}");
-            //}
+            foreach (var i in eredmeny)
+            {
+                Console.WriteLine($"{i.Ev}-{i.Honap}-{i.Nap} {i.Homerseklet}");
+            }
 
+            var egynap = idojarasadatok.Find(x => x.Ev == 2005);
+
+            if (egynap==null)
+            {
+                Console.WriteLine("Nincs ilyen adat!");
+            } else
+            {
+                Console.WriteLine($"{egynap.Ev}-{egynap.Honap}-{egynap.Nap} {egynap.Homerseklet}");
+            }
+
+            
 
             Console.ReadKey();
         }

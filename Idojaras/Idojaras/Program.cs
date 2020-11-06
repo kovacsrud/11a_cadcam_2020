@@ -53,19 +53,19 @@ namespace Idojaras
 
             var ev2016 = idojarasadatok.FindAll(x=>x.Ev==2016 && x.Honap==11).Average(x=>x.Homerseklet);
 
-            Console.Write("Adjon meg egy évet:");
-            var beev = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Adjon meg egy hónapot:");
-            var behonap= Convert.ToInt32(Console.ReadLine());
-            Console.Write("Adjon meg egy napot:");
-            var benap = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Adjon meg egy évet:");
+            //var beev = Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Adjon meg egy hónapot:");
+            //var behonap= Convert.ToInt32(Console.ReadLine());
+            //Console.Write("Adjon meg egy napot:");
+            //var benap = Convert.ToInt32(Console.ReadLine());
 
-            var eredmeny = idojarasadatok.FindAll(x=>x.Ev==beev && x.Honap==behonap && x.Nap==benap);
+            //var eredmeny = idojarasadatok.FindAll(x=>x.Ev==beev && x.Honap==behonap && x.Nap==benap);
 
-            foreach (var i in eredmeny)
-            {
-                Console.WriteLine($"{i.Ev}-{i.Honap}-{i.Nap} {i.Homerseklet}");
-            }
+            //foreach (var i in eredmeny)
+            //{
+            //    Console.WriteLine($"{i.Ev}-{i.Honap}-{i.Nap} {i.Homerseklet}");
+            //}
 
             var egynap = idojarasadatok.Find(x => x.Ev == 2005);
 
@@ -77,7 +77,29 @@ namespace Idojaras
                 Console.WriteLine($"{egynap.Ev}-{egynap.Honap}-{egynap.Nap} {egynap.Homerseklet}");
             }
 
-            
+            var kiirando = idojarasadatok.FindAll(x => x.Ev == 2010);
+
+            try
+            {
+                FileStream fajl = new FileStream("ev_2010.csv", FileMode.Create);
+
+                using (StreamWriter writer = new StreamWriter(fajl, Encoding.Default))
+                {
+                    writer.WriteLine($"ev;honap;nap;ora;homerseklet;szelsebesseg;paratartalom");
+                    foreach (var i in kiirando)
+                    {
+                        writer.WriteLine($"{i.Ev};{i.Honap};{i.Nap};{i.Ora};{i.Homerseklet};{i.Szelsebesseg};{i.Paratartalom}");
+                    }
+                    Console.WriteLine("Fájlba írás kész!");
+                }
+
+                               
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
+            }
 
             Console.ReadKey();
         }

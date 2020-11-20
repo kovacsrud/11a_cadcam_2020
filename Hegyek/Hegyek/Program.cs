@@ -57,6 +57,28 @@ namespace Hegyek
                 Console.WriteLine($"Van {bemagassag}-nál magasabb hegycsúcs a Börzsönyben");
             }
 
+            var vane_magasabb = hegycsucsok.FindAll(x=>x.Hegyseg=="Börzsöny" && x.Magassag>bemagassag);
+
+            if (vane_magasabb.Count==0)
+            {
+                Console.WriteLine($"Nincs {bemagassag}-nál magasabb hegycsúcs a Börzsönyben");
+            } else
+            {
+                Console.WriteLine($"Van {bemagassag}-nál magasabb hegycsúcs a Börzsönyben");
+            }
+
+            var magas3000 = hegycsucsok.FindAll(x=>x.Magassag*3.28>3000).Count;
+
+            Console.WriteLine($"3000 lábnál magasabb hegycsúcsok száma:{magas3000}");
+
+            var stat = hegycsucsok.ToLookup(x=>x.Hegyseg);
+
+            foreach (var i in stat)
+            {
+                Console.WriteLine($"{i.Key}-{i.Count()} db {i.Max(x=>x.Magassag)}");
+            }
+
+
             Console.ReadKey();
         }
     }

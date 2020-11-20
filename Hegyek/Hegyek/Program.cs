@@ -83,16 +83,24 @@ namespace Hegyek
             try
             {
                 FileStream fajl = new FileStream("bukk-videk.txt", FileMode.Create);
-                StreamWriter writer = new StreamWriter(fajl, Encoding.Default);
+                //StreamWriter writer = new StreamWriter(fajl, Encoding.Default);
 
-                writer.WriteLine("Hegycsúcs neve;Magasság láb");
+                //writer.WriteLine("Hegycsúcs neve;Magasság láb");
 
-                foreach (var i in bukkvidek)
+                //foreach (var i in bukkvidek)
+                //{
+                //    writer.WriteLine($"{i.HegycsucsNeve};{i.Magassag*3.28:0.0}");
+                //}
+
+                //writer.Close();
+                using (StreamWriter writer = new StreamWriter(fajl, Encoding.Default))
                 {
-                    writer.WriteLine($"{i.HegycsucsNeve};{i.Magassag*3.28:0.0}");
+                    writer.WriteLine("Hegycsúcs neve;Magasság láb");
+                    foreach (var i in bukkvidek)
+                    {
+                            writer.WriteLine($"{i.HegycsucsNeve};{i.Magassag*3.28:0.0}");
+                    }
                 }
-
-                writer.Close();
                 Console.WriteLine("Kiírás kész!");
             }
             catch (Exception ex)

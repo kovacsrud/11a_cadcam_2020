@@ -44,6 +44,18 @@ namespace Hegyek
                 $"Hegység:{legmagasabb.Hegyseg},"+
                 $"Magasság:{legmagasabb.Magassag}");
 
+            Console.Write("Kérek egy magasság értéket:");
+            var bemagassag = Convert.ToInt32(Console.ReadLine());
+
+            var vanemagasabb = hegycsucsok.Find(x=>x.Hegyseg=="Börzsöny" && x.Magassag>bemagassag);
+
+            if (vanemagasabb==null)
+            {
+                Console.WriteLine($"Nincs {bemagassag}-nál magasabb hegycsúcs a Börzsönyben");
+            } else
+            {
+                Console.WriteLine($"Van {bemagassag}-nál magasabb hegycsúcs a Börzsönyben");
+            }
 
             Console.ReadKey();
         }

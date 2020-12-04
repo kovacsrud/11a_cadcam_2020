@@ -10,7 +10,7 @@ namespace Kektura
     {
         public string Kiindulopont { get; set; }
         public string Vegpont { get; set; }
-        public int SzakaszHossza { get; set; }
+        public double SzakaszHossza { get; set; }
         public int OsszEmelkedes { get; set; }
         public int OsszLejtes { get; set; }
         public string Pecsetelohely  { get; set; }

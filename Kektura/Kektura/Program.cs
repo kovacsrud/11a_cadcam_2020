@@ -12,19 +12,20 @@ namespace Kektura
         static void Main(string[] args)
         {
             List<TuraSzakasz> teljestura = new List<TuraSzakasz>();
+            var kezdomagassag = 0; 
             try
             {
                 var sorok = File.ReadAllLines("kektura.csv", Encoding.Default);
-                var kezdomagassag = Convert.ToInt32(sorok[0]);
-
+                
+                var aktualisMagassag = Convert.ToInt32(sorok[0]);
+                kezdomagassag= Convert.ToInt32(sorok[0]);
 
                 for (int i = 1; i < sorok.Length; i++)
                 {
                     var e = sorok[i].Split(';');
                     TuraSzakasz turaszakasz;
-                    var aktualisMagassag = kezdomagassag+Convert.ToInt32(e[3]) + Convert.ToInt32(e[4]);
-                    if (i==1)
-                    {
+                                      
+                        aktualisMagassag +=  Convert.ToInt32(e[3]) - Convert.ToInt32(e[4]);
                         turaszakasz = new TuraSzakasz
                         {
                             Kiindulopont = e[0],
@@ -35,24 +36,7 @@ namespace Kektura
                             Pecsetelohely = e[5],
                             VegpontMagassag = aktualisMagassag
                         };
-                    }
-                    else
-                    {
-                        turaszakasz = new TuraSzakasz
-                        {
-                            Kiindulopont = e[0],
-                            Vegpont = e[1],
-                            SzakaszHossza = Convert.ToDouble(e[2]),
-                            OsszEmelkedes = Convert.ToInt32(e[3]),
-                            OsszLejtes = Convert.ToInt32(e[4]),
-                            Pecsetelohely = e[5],
-                            VegpontMagassag = aktualisMagassag + Convert.ToInt32(e[3]) + Convert.ToInt32(e[4])
-                        };
-                    }
-
-                    
-
-
+                                                                        
                     teljestura.Add(turaszakasz); ;
                 }
 
@@ -91,6 +75,40 @@ namespace Kektura
                     Console.WriteLine($"Nincs hiányos állomásnév!");
                 }
                 
+            }
+
+            var legmagasabb = teljestura.Find(x => x.VegpontMagassag == teljestura.Max(y => y.VegpontMagassag));
+
+            Console.WriteLine($@"A legmagasabb végpont:
+            {legmagasabb.Vegpont}
+            {legmagasabb.VegpontMagassag}");
+
+            try
+            {
+                FileStream fajl = new FileStream("kektura2.csv",FileMode.Create);
+                StreamWriter writer = new StreamWriter(fajl,Encoding.Default);
+
+                writer.WriteLine(kezdomagassag);
+
+                foreach (var i in teljestura)
+                {
+                    if (i.HianyosNev())
+                    {
+                        writer.WriteLine($"{i.Kiindulopont};{i.Vegpont} pecsetelohely;{i.SzakaszHossza};{i.OsszEmelkedes};{i.OsszLejtes};{i.Pecsetelohely}");
+                    } else
+                    {
+                        writer.WriteLine($"{i.Kiindulopont};{i.Vegpont};{i.SzakaszHossza};{i.OsszEmelkedes};{i.OsszLejtes};{i.Pecsetelohely}");
+                    }
+                }
+
+                writer.Close();
+
+                Console.WriteLine("Fájl írása kész!");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
             }
 
 

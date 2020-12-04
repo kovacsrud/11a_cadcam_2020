@@ -10,6 +10,9 @@ namespace Kektura
     {
         static void Main(string[] args)
         {
+
+
+            Console.ReadKey();
         }
     }
 }

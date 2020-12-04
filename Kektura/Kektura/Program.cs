@@ -92,7 +92,7 @@ namespace Kektura
 
                 foreach (var i in teljestura)
                 {
-                    if (i.HianyosNev())
+                    if (i.HianyosNev() && i.Pecsetelohely=="i")
                     {
                         writer.WriteLine($"{i.Kiindulopont};{i.Vegpont} pecsetelohely;{i.SzakaszHossza};{i.OsszEmelkedes};{i.OsszLejtes};{i.Pecsetelohely}");
                     } else

@@ -44,6 +44,16 @@ namespace Kektura
 
             Console.WriteLine($"Feladat 4: A túra teljes hossza:{turahossz} km.");
 
+            var legrovidebb = teljestura.Min(x => x.SzakaszHossza);
+
+            var minszakasz = teljestura.Find(x => x.SzakaszHossza == legrovidebb);
+
+            Console.WriteLine($@"Feladat 5: A legrövidebb szakasz adatai:
+               Kezdete:{minszakasz.Kiindulopont}
+               Vége:{minszakasz.Vegpont}   
+               Hossz:{minszakasz.SzakaszHossza} km  
+                             ");
+
 
 
 

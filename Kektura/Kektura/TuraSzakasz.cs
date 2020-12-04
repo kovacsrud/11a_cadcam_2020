@@ -14,5 +14,17 @@ namespace Kektura
         public int OsszEmelkedes { get; set; }
         public int OsszLejtes { get; set; }
         public string Pecsetelohely  { get; set; }
+        public int VegpontMagassag { get; set; }
+
+        public bool HianyosNev()
+        {
+            if (Pecsetelohely=="i" && Vegpont.Contains("pecsetelohely"))
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
     }
 }

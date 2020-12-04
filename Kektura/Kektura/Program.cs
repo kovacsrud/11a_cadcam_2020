@@ -15,20 +15,45 @@ namespace Kektura
             try
             {
                 var sorok = File.ReadAllLines("kektura.csv", Encoding.Default);
+                var kezdomagassag = Convert.ToInt32(sorok[0]);
+
+
                 for (int i = 1; i < sorok.Length; i++)
                 {
                     var e = sorok[i].Split(';');
-                    teljestura.Add(
-                        new TuraSzakasz
+                    TuraSzakasz turaszakasz;
+                    var aktualisMagassag = kezdomagassag+Convert.ToInt32(e[3]) + Convert.ToInt32(e[4]);
+                    if (i==1)
+                    {
+                        turaszakasz = new TuraSzakasz
                         {
-                            Kiindulopont=e[0],
-                            Vegpont=e[1],
-                            SzakaszHossza=Convert.ToDouble(e[2]),
-                            OsszEmelkedes=Convert.ToInt32(e[3]),
-                            OsszLejtes=Convert.ToInt32(e[4]),
-                            Pecsetelohely=e[5]
-                        }
-                        );
+                            Kiindulopont = e[0],
+                            Vegpont = e[1],
+                            SzakaszHossza = Convert.ToDouble(e[2]),
+                            OsszEmelkedes = Convert.ToInt32(e[3]),
+                            OsszLejtes = Convert.ToInt32(e[4]),
+                            Pecsetelohely = e[5],
+                            VegpontMagassag = aktualisMagassag
+                        };
+                    }
+                    else
+                    {
+                        turaszakasz = new TuraSzakasz
+                        {
+                            Kiindulopont = e[0],
+                            Vegpont = e[1],
+                            SzakaszHossza = Convert.ToDouble(e[2]),
+                            OsszEmelkedes = Convert.ToInt32(e[3]),
+                            OsszLejtes = Convert.ToInt32(e[4]),
+                            Pecsetelohely = e[5],
+                            VegpontMagassag = aktualisMagassag + Convert.ToInt32(e[3]) + Convert.ToInt32(e[4])
+                        };
+                    }
+
+                    
+
+
+                    teljestura.Add(turaszakasz); ;
                 }
 
 
@@ -48,12 +73,25 @@ namespace Kektura
 
             var minszakasz = teljestura.Find(x => x.SzakaszHossza == legrovidebb);
 
+            var minszakasz2 = teljestura.Find(x=>x.SzakaszHossza==teljestura.Min(y=>y.SzakaszHossza));
+
             Console.WriteLine($@"Feladat 5: A legrövidebb szakasz adatai:
                Kezdete:{minszakasz.Kiindulopont}
                Vége:{minszakasz.Vegpont}   
                Hossz:{minszakasz.SzakaszHossza} km  
                              ");
 
+            foreach (var i in teljestura)
+            {
+                if (i.HianyosNev() && i.Pecsetelohely=="i")
+                {
+                    Console.WriteLine($"{i.Vegpont}");
+                } else
+                {
+                    Console.WriteLine($"Nincs hiányos állomásnév!");
+                }
+                
+            }
 
 
 

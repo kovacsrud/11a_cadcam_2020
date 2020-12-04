@@ -40,6 +40,12 @@ namespace Kektura
 
             Console.WriteLine($"Feladat 3: Szakaszok száma:{teljestura.Count} db.");
 
+            var turahossz = teljestura.Sum(x => x.SzakaszHossza);
+
+            Console.WriteLine($"Feladat 4: A túra teljes hossza:{turahossz} km.");
+
+
+
 
             Console.ReadKey();
         }

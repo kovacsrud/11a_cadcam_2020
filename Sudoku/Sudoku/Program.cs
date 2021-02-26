@@ -61,6 +61,27 @@ namespace Sudoku
 
             Console.WriteLine(veletlenelem.Kitoltottseg());
 
+            veletlenelem.Kirajzol();
+
+            string fajlnev = $"sudoku{meret}.txt";
+            try
+            {
+                FileStream fajl = new FileStream(fajlnev,FileMode.Create);
+                StreamWriter writer = new StreamWriter(fajl, Encoding.Default);
+                foreach (var i in feladvanydb)
+                {
+                    writer.WriteLine(i.Kezdo);
+                }
+
+                writer.Close();
+                Console.WriteLine("Kiírás kész!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
+            }
+
+
             Console.ReadKey();
         }
     }

@@ -30,6 +30,18 @@ namespace Sudoku
 
             Console.WriteLine(feladvanyok.Count);
 
+            Console.Write("Kérem a feladvány méretét [4..9]:");
+            int meret = Convert.ToInt32(Console.ReadLine());
+            while (meret<4 || meret>9)
+            {
+                Console.Write("Rossz! Kérem a feladvány méretét [4..9]:");
+                meret = Convert.ToInt32(Console.ReadLine());
+            }
+
+            var feladvanydb = feladvanyok.FindAll(x=>x.Meret==meret).Count;
+
+            Console.WriteLine($"{meret}x{meret} méretű feladványból {feladvanydb} db található a fájlban.");
+
             Console.ReadKey();
         }
     }

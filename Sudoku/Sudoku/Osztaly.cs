@@ -34,4 +34,24 @@ class Feladvany
             }
         }
     }
+
+    public string Kitoltottseg()
+    {
+        double kitoltottseg = 0;
+        int nemnulldb = 0;
+
+        for (int i = 0; i < Kezdo.Length; i++)
+        {
+            if (Kezdo[i]!='0')
+            {
+                nemnulldb++;
+            }
+
+           
+        }
+        kitoltottseg = (double)nemnulldb / Kezdo.Length;
+
+        return $"A feladvány kitöltöttsége:{kitoltottseg * 100} %";
+
+    }
 }

@@ -47,6 +47,20 @@ namespace Sudoku
 
             Console.WriteLine(veletlenelem.Kezdo);
 
+            int nulladb = 0;
+            for (int i = 0; i < veletlenelem.Kezdo.Length; i++)
+            {
+                if (veletlenelem.Kezdo[i]=='0')
+                {
+                    nulladb++;
+                }
+            }
+
+            var kitoltottseg = (double)(veletlenelem.Kezdo.Length - nulladb) / veletlenelem.Kezdo.Length;
+            Console.WriteLine($"A feladvany kitöltöttsége:{kitoltottseg*100} %");
+
+            Console.WriteLine(veletlenelem.Kitoltottseg());
+
             Console.ReadKey();
         }
     }

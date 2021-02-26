@@ -44,5 +44,30 @@ namespace SudokuGUI
             }
             textboxMeret.Text = meret.ToString();
         }
+
+        private void textboxFeladvany_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textblockMeret.Text = textboxFeladvany.Text.Length.ToString();
+        }
+
+        private void buttonEllenorzes_Click(object sender, RoutedEventArgs e)
+        {
+            var meret = Convert.ToInt32(textboxMeret.Text);
+            var elvartmeret = meret * meret;
+            var aktualismeret = textboxFeladvany.Text.Length;
+
+            if (aktualismeret<elvartmeret)
+            {
+                var kulonbseg = Math.Abs(aktualismeret-elvartmeret);
+                MessageBox.Show($"A feladvány rövid, kell még {kulonbseg} számjegy");
+            } else if (aktualismeret>elvartmeret)
+            {
+                var kulonbseg = Math.Abs(aktualismeret - elvartmeret);
+                MessageBox.Show($"A feladvány hosszú, törlendő {kulonbseg} számjegy");
+            } else
+            {
+                MessageBox.Show($"A feladvány megfelelő méretű");
+            }
+        }
     }
 }

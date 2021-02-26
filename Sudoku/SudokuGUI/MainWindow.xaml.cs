@@ -24,5 +24,15 @@ namespace SudokuGUI
         {
             InitializeComponent();
         }
+
+        private void buttonNovel_Click(object sender, RoutedEventArgs e)
+        {
+            var meret = Convert.ToInt32(textboxMeret.Text);
+            if (meret<9)
+            {
+                meret += 1;
+            }
+            textboxMeret.Text = meret.ToString();
+        }
     }
 }

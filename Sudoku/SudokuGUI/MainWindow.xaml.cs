@@ -34,5 +34,15 @@ namespace SudokuGUI
             }
             textboxMeret.Text = meret.ToString();
         }
+
+        private void buttonCsokkent_Click(object sender, RoutedEventArgs e)
+        {
+            var meret = Convert.ToInt32(textboxMeret.Text);
+            if (meret>4)
+            {
+                meret -= 1;
+            }
+            textboxMeret.Text = meret.ToString();
+        }
     }
 }

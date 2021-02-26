@@ -8,7 +8,7 @@
         Title="Sudoku-ellenőrző" Height="210" Width="540">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="24,37,0,0" TextWrapping="Wrap" Text="Új feladvány mérete:" VerticalAlignment="Top" FontSize="14"/>
-        <Button x:Name="buttonCsokkent" Content="-" HorizontalAlignment="Left" Margin="165,37,0,0" VerticalAlignment="Top" Width="23" Height="19" FontSize="14"/>
+        <Button x:Name="buttonCsokkent" Content="-" HorizontalAlignment="Left" Margin="165,37,0,0" VerticalAlignment="Top" Width="23" Height="19" FontSize="14" Click="buttonCsokkent_Click"/>
         <TextBox x:Name="textboxMeret" HorizontalAlignment="Left" Height="19" Margin="203,37,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="24" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
         <Button x:Name="buttonNovel" Content="+" HorizontalAlignment="Left" Margin="244,37,0,0" VerticalAlignment="Top" Width="23" Height="19" FontSize="14" RenderTransformOrigin="5.087,1.737" Click="buttonNovel_Click"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="24,80,0,0" TextWrapping="Wrap" Text="Kezdőállapot:" VerticalAlignment="Top" Width="153" FontSize="14"/>

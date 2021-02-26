@@ -14,6 +14,7 @@ namespace Sudoku
         static void Main(string[] args)
         {
             List<Feladvany> feladvanyok = new List<Feladvany>();
+            Random rand = new Random();
 
             try
             {
@@ -38,9 +39,13 @@ namespace Sudoku
                 meret = Convert.ToInt32(Console.ReadLine());
             }
 
-            var feladvanydb = feladvanyok.FindAll(x=>x.Meret==meret).Count;
+            var feladvanydb = feladvanyok.FindAll(x=>x.Meret==meret);
 
-            Console.WriteLine($"{meret}x{meret} méretű feladványból {feladvanydb} db található a fájlban.");
+            Console.WriteLine($"{meret}x{meret} méretű feladványból {feladvanydb.Count} db található a fájlban.");
+
+            var veletlenelem = feladvanydb.ElementAt(rand.Next(0,feladvanydb.Count));
+
+            Console.WriteLine(veletlenelem.Kezdo);
 
             Console.ReadKey();
         }

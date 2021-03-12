@@ -27,12 +27,30 @@ namespace UltraIdo
 
         private void buttonSzamol_Click(object sender, RoutedEventArgs e)
         {
-            var ido= textboxIdo.Text.Split(':');
-            double ora = Convert.ToDouble(ido[0]);
-            double perc = Convert.ToDouble(ido[1]);
-            double masodperc = Convert.ToDouble(ido[2]);
+            try
+            {
+                var ido = textboxIdo.Text.Split(':');
+                double ora = Convert.ToDouble(ido[0]);
+                double perc = Convert.ToDouble(ido[1]);
+                double masodperc = Convert.ToDouble(ido[2]);
 
-            textblockOra.Text = $"{((ora * 3600) + (perc * 60) + masodperc) / 3600:0.00}.óra";
+                if (perc>59)
+                {
+                    throw new ArgumentException("A perc nem lehet nagyobb mint 59");
+                }
+                if (masodperc>59)
+                {
+                    throw new ArgumentException("A másodperc nem lehet nagyobb mint 59");
+                }
+
+
+                textblockOra.Text = $"{((ora * 3600) + (perc * 60) + masodperc) / 3600:0.00}.óra";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);                
+            }
+            
 
 
         }

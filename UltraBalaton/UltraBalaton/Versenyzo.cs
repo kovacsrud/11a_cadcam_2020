@@ -32,7 +32,7 @@ namespace UltraBalaton
             int perc = Convert.ToInt32(e[1]);
             int masodperc = Convert.ToInt32(e[2]);
 
-            var osszora = ((ora * 3600) + (perc * 60) + masodperc)/3600;
+            var osszora = (double)((ora * 3600) + (perc * 60) + masodperc)/3600;
             return osszora;
         }
     }

@@ -51,6 +51,13 @@ namespace UltraBalaton
                 Console.WriteLine("Indult egyéniben a versenyző? Nem");
             }
 
+            //foreach (var i in versenyzok)
+            //{
+            //    Console.WriteLine($"{i.VersenyzoNev},{i.IdoOraban():0.00}");
+            //}
+
+            var ferfiAtlag = versenyzok.FindAll(x=>x.Kategoria=="Ferfi" && x.Tavszazalek==100).Average(x=>x.IdoOraban());
+            Console.WriteLine($"7.feladat Átlagos idő:{ferfiAtlag:0.00} óra.");
 
             Console.ReadKey();
         }

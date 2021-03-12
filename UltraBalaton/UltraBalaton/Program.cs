@@ -34,6 +34,8 @@ namespace UltraBalaton
             var beNev = Console.ReadLine();
 
             var sportolo = versenyzok.Find(x=>x.VersenyzoNev==beNev);
+            
+
 
             if (sportolo!=null)
             {
@@ -58,6 +60,20 @@ namespace UltraBalaton
 
             var ferfiAtlag = versenyzok.FindAll(x=>x.Kategoria=="Ferfi" && x.Tavszazalek==100).Average(x=>x.IdoOraban());
             Console.WriteLine($"7.feladat Átlagos idő:{ferfiAtlag:0.00} óra.");
+
+            var ferfiak = versenyzok.FindAll(x=>x.Kategoria=="Ferfi" && x.Tavszazalek==100);
+            var nok = versenyzok.FindAll(x => x.Kategoria == "Noi" && x.Tavszazalek==100);
+
+            var gyoztesFerfi = ferfiak.Find(x=>x.IdoOraban()==ferfiak.Min(y=>y.IdoOraban()));
+
+            var gyoztesNo = nok.Find(x=>x.IdoOraban()==nok.Min(y=>y.IdoOraban()));
+
+            
+
+            Console.WriteLine($@"8.feladat: A verseny győztesei:
+            Nők:{gyoztesNo.VersenyzoNev},({gyoztesNo.Rajtszam}.),{gyoztesNo.Versenyido}
+            Férfiak:{gyoztesFerfi.VersenyzoNev},({gyoztesFerfi.Rajtszam}.),{gyoztesFerfi.Versenyido}");
+            
 
             Console.ReadKey();
         }

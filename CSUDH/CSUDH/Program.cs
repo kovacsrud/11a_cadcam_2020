@@ -43,6 +43,52 @@ namespace CSUDH
             //    Console.WriteLine("------------------------------");
             //}
 
+            try
+            {
+                FileStream fajl = new FileStream("table.html", FileMode.Create);
+                StreamWriter sw = new StreamWriter(fajl, Encoding.Default);
+
+                string htmlFajl = "<HTML><HEAD><TITLE>Domain lista</TITLE></HEAD>\n";
+                htmlFajl += "<BODY>\n";
+                htmlFajl += "<TABLE>\n";
+                htmlFajl += "<TR>\n";
+                htmlFajl += $"<TD>Sorszám</TD>";
+                htmlFajl += $"<TD>Host domainneve</TD>";
+                htmlFajl += $"<TD>Host IP címe </TD>";
+                for (int i = 0; i < 5; i++)
+                {
+                    htmlFajl += $"<TD>{i+1}.szint</TD>";
+                }
+                htmlFajl += "</TR>\n";
+                int sorszam = 1;
+
+                foreach (var j in domains)
+                {
+                    htmlFajl += "<TR>\n";
+                    htmlFajl += $"<TD>{sorszam}</TD>";
+                    htmlFajl += $"<TD>{j.DomainName}</TD>";
+                    htmlFajl += $"<TD>{j.IPAddress}</TD>";
+                    for (int i = 0; i < 5; i++)
+                    {
+                        htmlFajl += $"<TD>{j.GetDomain(i+1)}</TD>";
+                    }
+                    htmlFajl += "</TR>\n";
+                    sorszam++;
+
+                }
+
+                htmlFajl += "</TABLE>\n";
+                htmlFajl += "</BODY></HTML>";
+
+                sw.Write(htmlFajl);
+
+                sw.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);                
+            }
+
             Console.ReadKey();
         }
     }

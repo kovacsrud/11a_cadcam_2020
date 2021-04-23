@@ -10,22 +10,24 @@ namespace Kivetelek
     {
         static void Main(string[] args)
         {
-            var a = 0;
-            var b = 0;
-            var c = 0;
+            
             try
             {
                 Console.Write("A:");
-                a = Convert.ToInt32(Console.ReadLine());
+                var a = Convert.ToInt32(Console.ReadLine());
                 Console.Write("B:");
-                b = Convert.ToInt32(Console.ReadLine());
-                c = a / b;
+                var b = Convert.ToInt32(Console.ReadLine());
+                var c = a / b;
                 Console.WriteLine($"C:{c}");
-                throw new SajatHiba("Saját kivétel!");
+               
             }
-            catch(ArgumentException ex)
+            catch(FormatException ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("Számot kell megadni a bevitelnél");
+            }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine("A megadott érték túl nagy!");
             }
             catch(DivideByZeroException ex)
             {
@@ -37,14 +39,7 @@ namespace Kivetelek
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
-            finally
-            {
-                a = 0;
-                b = 0;
-                c = 0;
-            }
-
-            Console.WriteLine($"A:{a},B:{b},C:{c}");
+            
 
             Console.ReadKey();
         }

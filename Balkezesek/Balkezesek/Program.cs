@@ -47,6 +47,22 @@ namespace Balkezesek
             Console.WriteLine($"Átlagsúly:{atlagsuly:0.00}");
             //Írassa ki fájlba azoknak a dobóknak az adatait, akik 1995
             //és 1997 között játszottak
+            var fajlba = dobok.FindAll(x=>x.ElsoEv>=1995 && x.UtolsoEv<=1997);
+            try
+            {
+                FileStream fajl = new FileStream("dobok95-97.txt",FileMode.Create);
+                StreamWriter wr = new StreamWriter(fajl,Encoding.Default);
+                foreach (var i in fajlba)
+                {
+                    wr.WriteLine($"{i.Nev};{i.ElsoEv}-{i.ElsoHonap}-{i.ElsoNap};{i.UtolsoEv}-{i.UtolsoHonap}-{i.UtolsoNap};{i.Suly};{i.Magassag}");
+                }
+                wr.Close();
+                Console.WriteLine("Kiírás kész");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message); 
+            }
 
             Console.ReadKey();
         }

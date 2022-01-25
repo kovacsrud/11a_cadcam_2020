@@ -68,8 +68,8 @@ namespace Elemek_2022
                     maxkulonbseg = Convert.ToInt32(okorutan[i].Ev) - Convert.ToInt32(okorutan[i - 1].Ev);
                 }
             }
-           
 
+            Console.WriteLine($"Legnagyobb különbség:{maxkulonbseg}");
             Console.ReadKey();
         }
     }

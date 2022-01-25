@@ -39,7 +39,9 @@ namespace Kivetelek
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
-            
+
+            var date = DateTime.Parse("2008.11.11");
+            Console.WriteLine(date.Year);
 
             Console.ReadKey();
         }
